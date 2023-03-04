@@ -43,7 +43,6 @@ namespace BT.Meta.MainScene.CompositeRoot
             var mainSceneObjectsStartup =
                 new MainSceneObjectsStartup
                 (
-
                 );
             mainSceneManagersStartup
                 .AddUpdateSystems(_updateSystems)

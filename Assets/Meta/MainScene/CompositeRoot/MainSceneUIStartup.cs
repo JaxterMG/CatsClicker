@@ -1,6 +1,7 @@
 using BT.Core.CompositeRoot;
 using BT.Meta.Common.UI.GUITextWithImage;
 using BT.Meta.Common.UI.Input;
+using BT.Meta.MainScene.UI;
 using BT.Meta.MainScene.UI.TopBar;
 
 using Leopotam.Ecs;
@@ -14,6 +15,7 @@ namespace BT.Meta.MainScene.CompositeRoot
     {
         private readonly Camera _camera;
         public GUITextView GUIText;
+        public GUIBottomBuyBarView GUIBottomBuyBarView;
         public readonly PanelTouchInputListener PanelTouchInputListener;
         public readonly Canvas UI;
 
@@ -24,14 +26,18 @@ namespace BT.Meta.MainScene.CompositeRoot
             PanelTouchInputListener =
                 UI.GetComponentInChildren<PanelTouchInputListener>();
             GUIText = UI.GetComponentInChildren<GUITextView>();
+            GUIBottomBuyBarView = UI.GetComponentInChildren<GUIBottomBuyBarView>();
+
         }
 
         public MainSceneUIStartup AddUpdateSystems(EcsSystems systems)
         {
             systems
                 .Add(new SGUITextPresenter())
+                .Add(new SGUIBottomBuyBarPresenter())
                 .Inject(PanelTouchInputListener.GetComponent<RectTransform>())
                 .Inject(GUIText)
+                .Inject(GUIBottomBuyBarView)
                 .Inject(_camera);
             return this;
         }

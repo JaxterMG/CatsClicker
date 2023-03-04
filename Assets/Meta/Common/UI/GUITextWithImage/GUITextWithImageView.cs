@@ -10,7 +10,7 @@ namespace BT.Meta.Common.UI.GUITextWithImage
     public class GUITextWithImageView : UIView, IUIHandleInput
     {
         [SerializeField] private Button _button;
-        [SerializeField] private Image _container;
+        //[SerializeField] private Image _container;
         [SerializeField] private Text _text;
 
 
@@ -44,7 +44,7 @@ namespace BT.Meta.Common.UI.GUITextWithImage
         {
 #if DEBUG
             Debug.Assert(_button != null);
-            Debug.Assert(_container != null);
+            //Debug.Assert(_container != null);
             Debug.Assert(_text != null);
 #endif
         }
