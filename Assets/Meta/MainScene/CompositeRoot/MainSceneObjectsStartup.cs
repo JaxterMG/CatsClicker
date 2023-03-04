@@ -22,6 +22,7 @@ namespace BT.Meta.MainScene.Objects
             systems
                 .Add(new SObjectsCreator())
                 .Add(new SRotator())
+                .Add(new SAnimator())
                 .OneFrame<CSpawnRequest>();
             return this;
         }

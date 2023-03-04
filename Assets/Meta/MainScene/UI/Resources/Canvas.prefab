@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUIBottomBuyBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1753725625976469022, guid: ec9d54326393aa24fbe8ae4ac9973f0f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1021227018, guid: 105adc5c6e76aab4e9ed0641a0a79241, type: 3}
     - target: {fileID: 3213002012741888198, guid: ec9d54326393aa24fbe8ae4ac9973f0f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -314,6 +318,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4735327602671622140, guid: ec9d54326393aa24fbe8ae4ac9973f0f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -122793651, guid: 105adc5c6e76aab4e9ed0641a0a79241, type: 3}
     - target: {fileID: 5379470402306949791, guid: ec9d54326393aa24fbe8ae4ac9973f0f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

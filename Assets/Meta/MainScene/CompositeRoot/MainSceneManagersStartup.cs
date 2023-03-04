@@ -31,7 +31,7 @@ namespace BT.Meta.MainScene.CompositeRoot
         public MainSceneManagersStartup AddLateUpdateSystems(EcsSystems systems)
         {
             systems
-                .Add(new SCameraMovement())
+                //.Add(new SCameraMovement())
                 .Inject(_camera)
                 .Inject(_panelTouchInputListener);
             return this;

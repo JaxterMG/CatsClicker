@@ -11,7 +11,8 @@ namespace BT.Meta.Common.UI.GUITextWithImage
     {
         [SerializeField] private Button _button;
         //[SerializeField] private Image _container;
-        [SerializeField] private Text _text;
+        [SerializeField] private Text _price;
+        [SerializeField] private Text _count;
 
 
         private Action _onClick;
@@ -45,7 +46,7 @@ namespace BT.Meta.Common.UI.GUITextWithImage
 #if DEBUG
             Debug.Assert(_button != null);
             //Debug.Assert(_container != null);
-            Debug.Assert(_text != null);
+            Debug.Assert(_price != null);
 #endif
         }
 
@@ -64,7 +65,11 @@ namespace BT.Meta.Common.UI.GUITextWithImage
 
         public void ShowText(string text)
         {
-            _text.text = text;
+            _price.text = text;
+        }
+        public void ShowCountText(string text)
+        {
+            _count.text = text;
         }
 
         public void ShowWithAction(Action onClick)

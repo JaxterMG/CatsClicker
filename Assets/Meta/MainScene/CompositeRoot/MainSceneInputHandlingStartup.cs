@@ -21,7 +21,7 @@ namespace BT.Meta.MainScene.CompositeRoot
         {
             systems
                 .Add(new STouchInputSender())
-                .Add(new SKeyboardInputSender())
+                //.Add(new SKeyboardInputSender())
                 .Inject(_panelTouchInputListener);
             return this;
         }
