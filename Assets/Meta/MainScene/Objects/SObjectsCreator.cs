@@ -15,8 +15,8 @@ namespace BT.Meta.MainScene.Counter
     public class SObjectsCreator : IEcsInitSystem, IEcsRunSystem
     {
         private EcsWorld _world;
-        List<GameObject> _objectsInCircle = new List<GameObject>();
         EcsFilter<CSpawnRequest> _spawnFilter;
+        EcsFilter<CObject> _cObjectFilter;
         public void Init()
         {
             // GameObject obj = Resources.Load<GameObject>("Cat");
@@ -50,18 +50,18 @@ namespace BT.Meta.MainScene.Counter
         public void AddNewObject(string name)
         {
             GameObject obj = Resources.Load<GameObject>("Cat");
-            int numObjects = _objectsInCircle.Count;
+            int numObjects = _cObjectFilter.GetEntitiesCount();
             float angle = numObjects * Mathf.PI * 2 / (numObjects + 1);;
             Vector3 spawnPos = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0) * 2 + Vector3.zero;
             
             var spawnedObject = GameObject.Instantiate(obj, spawnPos, Quaternion.LookRotation(Vector3.forward, spawnPos - Vector3.zero));
             var entity = _world.NewEntity();
             ref var cObj = ref entity.Get<CObject>();
+            cObj.Points = 1;
+            cObj.Timer = 1;
             cObj.Transform = spawnedObject.transform;
             ref var cRotator = ref entity.Get<CRotator>();
             cRotator.Speed = 40;
-
-            _objectsInCircle.Add(spawnedObject);
         }
     }
 }
