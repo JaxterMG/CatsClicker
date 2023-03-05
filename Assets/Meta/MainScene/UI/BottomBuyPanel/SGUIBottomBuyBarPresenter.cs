@@ -38,7 +38,7 @@ namespace BT.Meta.MainScene.UI.TopBar
             
         }
 
-        private void BuyCat(float catPrice, ref int catCount, GUITextWithImageView buyButton, string resourceName, float radius, int points, int speed)
+        private void BuyCat(ref float catPrice, ref int catCount, GUITextWithImageView buyButton, string resourceName, float radius, int points, int speed)
         {
             foreach (var balanceEntityId in _balanceFilter)
             {
@@ -54,7 +54,7 @@ namespace BT.Meta.MainScene.UI.TopBar
                     catCount++;
                     buyButton.ShowCountText(catCount.ToString());
                     balance.CurrentBalance -= catPrice;
-                    catPrice += catCount;
+                    catPrice += MathF.Floor(100 * MathF.Pow(1.2f, catCount));
                     buyButton.ShowText(catPrice.ToString());
                 }
             }
@@ -65,7 +65,7 @@ namespace BT.Meta.MainScene.UI.TopBar
             foreach (var balanceEntityId in _balanceFilter)
             {
                 ref var balance = ref _balanceFilter.Get1(balanceEntityId);
-                BuyCat(balance.Cat1Price, ref _cats1Count, _bottomBuyBarView.Buy1, "Cat1", 1.7f, 1, 40);
+                BuyCat(ref balance.Cat1Price, ref _cats1Count, _bottomBuyBarView.Buy1, "Cat1", 1.7f, 1, 40);
             }
         }
 
@@ -74,7 +74,7 @@ namespace BT.Meta.MainScene.UI.TopBar
             foreach (var balanceEntityId in _balanceFilter)
             {
                 ref var balance = ref _balanceFilter.Get1(balanceEntityId);
-                BuyCat(balance.Cat2Price, ref _cats2Count, _bottomBuyBarView.Buy2, "Cat2", 2.2f, 3, 50);
+                BuyCat(ref balance.Cat2Price, ref _cats2Count, _bottomBuyBarView.Buy2, "Cat2", 2.2f, 3, 50);
             }
         }
 
@@ -83,7 +83,7 @@ namespace BT.Meta.MainScene.UI.TopBar
             foreach (var balanceEntityId in _balanceFilter)
             {
                 ref var balance = ref _balanceFilter.Get1(balanceEntityId);
-                BuyCat(balance.Cat3Price, ref _cats3Count, _bottomBuyBarView.Buy3, "Cat3", 2.7f, 5, 20);
+                BuyCat(ref balance.Cat3Price, ref _cats3Count, _bottomBuyBarView.Buy3, "Cat3", 2.7f, 5, 20);
             }
         }
 
