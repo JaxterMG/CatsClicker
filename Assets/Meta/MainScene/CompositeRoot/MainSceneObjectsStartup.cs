@@ -13,8 +13,10 @@ namespace BT.Meta.MainScene.Objects
         IUpdateLogicPartStartup<MainSceneObjectsStartup>
     {
         private readonly Camera _camera;
-        public MainSceneObjectsStartup()
+        private BassAnalyzer _bassAnalyzer;
+        public MainSceneObjectsStartup(BassAnalyzer bassAnalyzer)
         {
+            _bassAnalyzer = bassAnalyzer;
         }
 
         public MainSceneObjectsStartup AddUpdateSystems(EcsSystems systems)
@@ -23,6 +25,7 @@ namespace BT.Meta.MainScene.Objects
                 .Add(new SObjectsCreator())
                 .Add(new SRotator())
                 .Add(new SAnimator())
+                .Inject(_bassAnalyzer)
                 .OneFrame<CSpawnRequest>();
             return this;
         }

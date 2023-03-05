@@ -840,6 +840,7 @@ MonoBehaviour:
   minScale: 1
   maxScale: 1.1
   smoothing: 3.8
+  CurrentScale: 0
 --- !u!114 &1761917022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,3 +1033,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0b29157bfce104597242c308e465bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bassAnalyzer: {fileID: 1761917022}

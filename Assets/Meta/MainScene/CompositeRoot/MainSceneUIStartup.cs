@@ -18,8 +18,9 @@ namespace BT.Meta.MainScene.CompositeRoot
         public GUIBottomBuyBarView GUIBottomBuyBarView;
         public readonly PanelTouchInputListener PanelTouchInputListener;
         public readonly Canvas UI;
+        private readonly BassAnalyzer _bassAnalyzer;
 
-        public MainSceneUIStartup(Camera camera)
+        public MainSceneUIStartup(Camera camera, BassAnalyzer bassAnalyzer)
         {
             _camera = camera;
             UI = Object.Instantiate(Resources.Load<Canvas>("Canvas"));
@@ -27,6 +28,7 @@ namespace BT.Meta.MainScene.CompositeRoot
                 UI.GetComponentInChildren<PanelTouchInputListener>();
             GUIText = UI.GetComponentInChildren<GUITextView>();
             GUIBottomBuyBarView = UI.GetComponentInChildren<GUIBottomBuyBarView>();
+            _bassAnalyzer = bassAnalyzer;
 
         }
 
@@ -38,7 +40,8 @@ namespace BT.Meta.MainScene.CompositeRoot
                 .Inject(PanelTouchInputListener.GetComponent<RectTransform>())
                 .Inject(GUIText)
                 .Inject(GUIBottomBuyBarView)
-                .Inject(_camera);
+                .Inject(_camera)
+                .Inject(_bassAnalyzer);
             return this;
         }
     }

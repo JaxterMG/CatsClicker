@@ -1,11 +1,13 @@
 using BT.Core.CompositeRoot;
 using BT.Meta.MainScene.MainCamera;
 using BT.Meta.MainScene.Objects;
+using UnityEngine;
 
 namespace BT.Meta.MainScene.CompositeRoot
 {
     public class MainSceneEcsStartup : EcsStartupBase
     {
+        [SerializeField] private BassAnalyzer _bassAnalyzer;
         protected override void AddLogicParts()
         {
             var mainSceneEnvironmentStartup =
@@ -14,7 +16,8 @@ namespace BT.Meta.MainScene.CompositeRoot
             var mainSceneUIStartup =
                 new MainSceneUIStartup
                 (
-                    mainSceneEnvironmentStartup.Camera
+                    mainSceneEnvironmentStartup.Camera,
+                    _bassAnalyzer
                 );
 
             var mainSceneManagersStartup =
@@ -43,6 +46,7 @@ namespace BT.Meta.MainScene.CompositeRoot
             var mainSceneObjectsStartup =
                 new MainSceneObjectsStartup
                 (
+                    _bassAnalyzer
                 );
             mainSceneManagersStartup
                 .AddUpdateSystems(_updateSystems)

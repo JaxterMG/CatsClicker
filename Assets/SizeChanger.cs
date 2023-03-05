@@ -7,17 +7,17 @@ public class SizeChanger : MonoBehaviour
     public float maxScale = 2.0f;
     public float smoothing = 5.0f;
 
-    private float currentScale;
+    public float CurrentScale;
 
     void Start()
     {
-        currentScale = transform.localScale.x;
+        CurrentScale = transform.localScale.x;
     }
 
     void Update()
     {
         float targetScale = Mathf.Lerp(minScale, maxScale, bassAnalyzer.bassValue);
-        currentScale = Mathf.Lerp(currentScale, targetScale, Time.deltaTime * smoothing);
-        transform.localScale = new Vector3(currentScale, currentScale, currentScale);
+        CurrentScale = Mathf.Lerp(CurrentScale, targetScale, Time.deltaTime * smoothing);
+        transform.localScale = new Vector3(CurrentScale, CurrentScale, CurrentScale);
     }
 }

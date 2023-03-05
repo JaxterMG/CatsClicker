@@ -41,6 +41,7 @@ namespace BT.Meta.MainScene.Counter
             cObj.Points = points;
             cObj.Timer = 1;
             cObj.Transform = spawnedObject.transform;
+            cObj.Animator = spawnedObject.GetComponentInChildren<Animator>();
             ref var cRotator = ref entity.Get<CRotator>();
             cRotator.Speed = speed;
         }

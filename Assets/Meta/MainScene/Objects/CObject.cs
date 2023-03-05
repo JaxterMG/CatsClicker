@@ -7,5 +7,6 @@ namespace BT.Meta.MainScene.Objects
         public Transform Transform;
         public float Points;
         public float Timer;
+        public Animator Animator;
     }
 }
