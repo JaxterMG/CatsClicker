@@ -48,7 +48,7 @@ public class AudioSpectrumAnalyzer : MonoBehaviour
         currentScaleValues = new float[numberOfSprites, 2];
     }
 
-    void Update()
+     void FixedUpdate()
     {
         AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Hanning);
         for (int i = 0; i < numberOfSprites; i++)

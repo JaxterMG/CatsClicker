@@ -14,7 +14,7 @@ public class SizeChanger : MonoBehaviour
         CurrentScale = transform.localScale.x;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float targetScale = Mathf.Lerp(minScale, maxScale, bassAnalyzer.bassValue);
         CurrentScale = Mathf.Lerp(CurrentScale, targetScale, Time.deltaTime * smoothing);

@@ -13,7 +13,7 @@ public class BassAnalyzer : MonoBehaviour
         spectrum = new float[resolution];
     }
 
-    void Update()
+    void FixedUpdate()
     {
         AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Hanning);
         

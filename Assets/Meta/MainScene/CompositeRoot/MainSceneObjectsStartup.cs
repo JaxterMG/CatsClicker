@@ -10,7 +10,7 @@ using UnityEngine;
 namespace BT.Meta.MainScene.Objects
 {
     public class MainSceneObjectsStartup :
-        IUpdateLogicPartStartup<MainSceneObjectsStartup>
+        IFixedUpdateLogicPartStartup<MainSceneObjectsStartup>
     {
         private readonly Camera _camera;
         private BassAnalyzer _bassAnalyzer;
@@ -19,9 +19,9 @@ namespace BT.Meta.MainScene.Objects
             _bassAnalyzer = bassAnalyzer;
         }
 
-        public MainSceneObjectsStartup AddUpdateSystems(EcsSystems systems)
+        public MainSceneObjectsStartup AddFixedUpdateSystems(EcsSystems systems)
         {
-            systems
+             systems
                 .Add(new SObjectsCreator())
                 .Add(new SRotator())
                 .Add(new SAnimator())

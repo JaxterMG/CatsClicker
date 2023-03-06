@@ -67,7 +67,7 @@ namespace BT.Meta.MainScene.CompositeRoot
             mainSceneCounterHandlingStartup
                 .AddUpdateSystems(_updateSystems);
             mainSceneObjectsStartup
-                .AddUpdateSystems(_updateSystems);
+                .AddFixedUpdateSystems(_updateSystems);
         }
     }
 }
